@@ -91,10 +91,9 @@ jQuery(document).ready(function ($) {
     if (ferror) return false;
     else var str = $(this).serialize();
     var action = $(this).attr('action');
-    console.log("Action=" + action);
     if (!action) {
-      console.log("Invoking PHP");
-      action = 'https://formspree.io/nbgooch@gmail.com';
+      action = "https://formspree.io/nbgooch@gmail.com";
+      console.log("Setting url to " + action);
     }
     console.log("data: " + str.toString());
     $.ajax({
