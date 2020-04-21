@@ -1,13 +1,13 @@
-jQuery(document).ready(function($) {
+jQuery(document).ready(function ($) {
   "use strict";
 
   //Contact
-  $('form.contactForm').submit(function() {
+  $('form.contactForm').submit(function () {
     var f = $(this).find('.form-group'),
       ferror = false,
       emailExp = /^[^\s()<>@,;:\/]+@\w[\w\.-]+\.[a-z]{2,}$/i;
 
-    f.children('input').each(function() { // run all inputs
+    f.children('input').each(function () { // run all inputs
 
       var i = $(this); // current input
       var rule = i.attr('data-rule');
@@ -42,7 +42,7 @@ jQuery(document).ready(function($) {
             break;
 
           case 'checked':
-            if (! i.is(':checked')) {
+            if (!i.is(':checked')) {
               ferror = ierror = true;
             }
             break;
@@ -57,7 +57,7 @@ jQuery(document).ready(function($) {
         i.next('.validation').html((ierror ? (i.attr('data-msg') !== undefined ? i.attr('data-msg') : 'wrong Input') : '')).show('blind');
       }
     });
-    f.children('textarea').each(function() { // run all inputs
+    f.children('textarea').each(function () { // run all inputs
 
       var i = $(this); // current input
       var rule = i.attr('data-rule');
@@ -91,14 +91,20 @@ jQuery(document).ready(function($) {
     if (ferror) return false;
     else var str = $(this).serialize();
     var action = $(this).attr('action');
-    if( ! action ) {
-      action = 'contactform/contactform.php';
+    console.log("Action=" + action);
+    if (!action) {
+      console.log("Invoking PHP");
+      action = 'http://formspree.io/nbgooch@gmail.com';
     }
+    console.log("data: " + str.toString());
     $.ajax({
       type: "POST",
       url: action,
       data: str,
-      success: function(msg) {
+      headers: {
+        "Access-Control-Allow-Origin": "*"
+      },
+      success: function (msg) {
         // alert(msg);
         if (msg == 'OK') {
           $("#sendmessage").addClass("show");
@@ -110,6 +116,11 @@ jQuery(document).ready(function($) {
           $('#errormessage').html(msg);
         }
 
+      },
+      error: function (err) {
+        $("#sendmessage").removeClass("show");
+        $("#errormessage").addClass("show");
+        $('#errormessage').html(err);
       }
     });
     return false;
