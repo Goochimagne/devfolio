@@ -96,20 +96,20 @@ jQuery(document).ready(function ($) {
       console.log("Setting url to " + action);
     }
     console.log("data: " + str.toString());
-    $.ajax({
-      type: "POST",
-      url: action,
-      data: str,
-    })
-    .done(function() {
-      $("#sendmessage").addClass("show");
-      $("#errormessage").removeClass("show");
-      $('.contactForm').find("input, textarea").val("");
-    })
-    .fail(function () {
-      $("#sendmessage").removeClass("show");
-      $("#errormessage").addClass("show");
-    })
+    // $.ajax({
+    //   type: "POST",
+    //   url: action,
+    //   data: str,
+    // })
+    // .done(function() {
+    //   $("#sendmessage").addClass("show");
+    //   $("#errormessage").removeClass("show");
+    //   $('.contactForm').find("input, textarea").val("");
+    // })
+    // .fail(function () {
+    //   $("#sendmessage").removeClass("show");
+    //   $("#errormessage").addClass("show");
+    // })
     return false;
   });
 
