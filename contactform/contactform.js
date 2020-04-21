@@ -100,16 +100,16 @@ jQuery(document).ready(function ($) {
       type: "POST",
       url: action,
       data: str,
-      suucess: function() {
-        $("#sendmessage").addClass("show");
-        $("#errormessage").removeClass("show");
-        $('.contactForm').find("input, textarea").val("");
-      },
-      error: function () {
-        $("#sendmessage").removeClass("show");
-        $("#errormessage").addClass("show");
-      }
-    });
+    })
+    .fail(function () {
+      $("#sendmessage").removeClass("show");
+      $("#errormessage").addClass("show");
+    })
+    .done(function() {
+      $("#sendmessage").addClass("show");
+      $("#errormessage").removeClass("show");
+      $('.contactForm').find("input, textarea").val("");
+    })
     return false;
   });
 
