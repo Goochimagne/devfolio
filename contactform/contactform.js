@@ -100,9 +100,10 @@ jQuery(document).ready(function ($) {
       type: "POST",
       url: action,
       data: str,
-      headers: {
-        "Access-Control-Allow-Origin": "*"
-      },
+      // headers: {
+      //   "Access-Control-Allow-Headers": "*",
+      //   "Access-Control-Allow-Origin": "*"
+      // },
       success: function (msg) {
         // alert(msg);
         if (msg == 'OK') {
