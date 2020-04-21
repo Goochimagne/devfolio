@@ -100,19 +100,12 @@ jQuery(document).ready(function ($) {
       type: "POST",
       url: action,
       data: str,
-      success: function (msg) {
-        // alert(msg);
-        if (msg == 'OK') {
-          $("#sendmessage").addClass("show");
-          $("#errormessage").removeClass("show");
-          $('.contactForm').find("input, textarea").val("");
-        } else {
-          $("#sendmessage").removeClass("show");
-          $("#errormessage").addClass("show");
-        }
-
+      suucess: function() {
+        $("#sendmessage").addClass("show");
+        $("#errormessage").removeClass("show");
+        $('.contactForm').find("input, textarea").val("");
       },
-      error: function (err) {
+      error: function () {
         $("#sendmessage").removeClass("show");
         $("#errormessage").addClass("show");
       }
