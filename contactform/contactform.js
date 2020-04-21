@@ -112,14 +112,12 @@ jQuery(document).ready(function ($) {
         } else {
           $("#sendmessage").removeClass("show");
           $("#errormessage").addClass("show");
-          $("#errormessage").innerHTML("Failed to send");
         }
 
       },
       error: function (err) {
         $("#sendmessage").removeClass("show");
         $("#errormessage").addClass("show");
-        $("#errormessage").innerHTML("Failed to send");
       }
     });
     return false;
