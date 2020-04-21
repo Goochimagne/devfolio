@@ -113,14 +113,12 @@ jQuery(document).ready(function ($) {
         } else {
           $("#sendmessage").removeClass("show");
           $("#errormessage").addClass("show");
-          $('#errormessage').html(msg);
         }
 
       },
       error: function (err) {
         $("#sendmessage").removeClass("show");
         $("#errormessage").addClass("show");
-        $('#errormessage').html(err);
       }
     });
     return false;
