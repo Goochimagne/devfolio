@@ -101,14 +101,14 @@ jQuery(document).ready(function ($) {
       url: action,
       data: str,
     })
-    .fail(function () {
-      $("#sendmessage").removeClass("show");
-      $("#errormessage").addClass("show");
-    })
     .done(function() {
       $("#sendmessage").addClass("show");
       $("#errormessage").removeClass("show");
       $('.contactForm').find("input, textarea").val("");
+    })
+    .fail(function () {
+      $("#sendmessage").removeClass("show");
+      $("#errormessage").addClass("show");
     })
     return false;
   });
