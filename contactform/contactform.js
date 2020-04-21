@@ -94,7 +94,7 @@ jQuery(document).ready(function ($) {
     console.log("Action=" + action);
     if (!action) {
       console.log("Invoking PHP");
-      action = 'http://formspree.io/nbgooch@gmail.com';
+      action = 'https://formspree.io/nbgooch@gmail.com';
     }
     console.log("data: " + str.toString());
     $.ajax({
