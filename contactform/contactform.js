@@ -93,9 +93,7 @@ jQuery(document).ready(function ($) {
     var action = $(this).attr('action');
     if (!action) {
       action = "https://formspree.io/nbgooch@gmail.com";
-      console.log("Setting url to " + action);
     }
-    console.log("data: " + str.toString());
     $.ajax({
       type: "POST",
       url: action,
